@@ -16,7 +16,6 @@
 * Convolution layer
 * Pooling layer
 * Recurrent layer
-* Attention layer
 </div>
 
 <div>
@@ -48,7 +47,6 @@
 <div>
 
 * Long Short-Term Memory (LSTM)
-* Encoder - Decoder
 </div>
 
 </div>
