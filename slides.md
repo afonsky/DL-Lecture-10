@@ -52,6 +52,10 @@ src: ./slides/0_introduction.md
 ---
 
 ---
+src: ./slides/0_outline.md
+---
+
+---
 src: ./slides/1_gd_lr_bs_recap.md
 ---
 

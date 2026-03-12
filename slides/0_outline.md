@@ -1,21 +1,30 @@
+---
+zoom: 0.95
+---
+
 # Outline
 
-* <Link to="4">Essentials of Artificial Neural Networks</Link>
+<br>
 
-* <Link to="5">Motivation</Link>
+### Part 1: Foundations
+* Gradient Descent Recap & Intuition
+* The Optimization Landscape: Local Minima, Saddle Points, Plateaus
 
-* <Link to="6">Attention Layer</Link>
+<br>
 
-* <Link to="12">Distance-based Kernels</Link>
+### Part 2: Stochastic Methods
+* Stochastic Gradient Descent (SGD)
+* Mini-batch SGD & Batch Size Trade-offs
 
-* <Link to="14">Attention Scoring Functions</Link>
+<br>
 
-* <Link to="19">Seq2veq with Attention</Link>
+### Part 3: Modern Optimizers
+* Momentum
+* Adaptive Learning Rates: Adagrad, RMSProp, Adam
+* Learning Rate Scheduling
 
-* <Link to="21">Multi-Head Attention</Link>
+<br>
 
-* <Link to="23">Self-Attention</Link>
-
-* <Link to="25">Positional Encoding</Link>
-
-* <Link to="27">Transformer Architecture</Link>
+### Part 4: Practical Tips
+* Which Optimizer to Use?
+* Common Pitfalls & Debugging

@@ -1,84 +1,220 @@
-# Stochastic Gradient Descent
+# Stochastic Gradient Descent (SGD)
 
-<div class="grid grid-cols-[3fr_4fr] gap-10">
+### Core idea: approximate the gradient using a **single** random example
+
+<div class="grid grid-cols-[4fr_3fr] gap-10">
 <div>
 
-### Algorithm
-* At time (step) $t$, sample example $t_i$<br>
-$\mathbf{x}_t = \mathbf{x}_{t-1} - \eta \nabla \ell_{t_i} (\mathbf{x}_{t-1})$
+**Full-batch GD** — uses all $n$ examples:
 
-$f(\mathbf{x}) = \frac{1}{n}\sum\limits_{i=0}^n \ell_i (\mathbf{x})$
+$$\theta_{t+1} = \theta_t - \eta \cdot \frac{1}{n}\sum_{i=1}^{n} \nabla \ell(\theta_t; x_i, y_i)$$
+
+**SGD** — uses just **one** random example $i_t$:
+
+$$\theta_{t+1} = \theta_t - \eta \cdot \nabla \ell(\theta_t; x_{i_t}, y_{i_t})$$
+
 </div>
 <div>
   <figure>
     <img src="/sgd.png" style="width: 290px !important;">
+    <figcaption style="color:#b3b3b3ff; font-size: 11px;"><br>SGD path: noisy but makes progress</figcaption>
   </figure>
 </div>
 </div>
+
+<v-click>
+
+### Why does this work?
+* On average, the single-example gradient points in the right direction
+* $\mathbb{E}[\nabla \ell_{i_t}(\theta)] = \nabla \mathcal{L}(\theta)$ — it's an **unbiased estimate**
+* Trade-off: **noisy** but **fast** per step
+
+</v-click>
+
+---
+
+# Mini-batch SGD: The Practical Middle Ground
+
+### Instead of 1 example or all examples, use a **mini-batch** of $b$ examples:
+
+$$\theta_{t+1} = \theta_t - \frac{\eta}{b} \sum_{i \in B_t} \nabla \ell(\theta_t; x_i, y_i)$$
+
+where $B_t$ is a random subset of size $b$
+
 <br>
 
-<div class="grid grid-cols-[3fr_4fr] gap-10">
+<div class="grid grid-cols-[1fr_1fr_1fr] gap-4">
 <div>
 
-* Compare to gradient descent<br>
-$\mathbf{x}_t = \mathbf{x}_{t-1} - \eta \nabla f(\mathbf{x}_{t-1})$<br>
+#### Batch GD ($b = n$)
+* Exact gradient
+* 1 update per pass
+* Very slow per update
+* Stable convergence
 
-$f(\mathbf{x}) = \frac{1}{n}\sum\limits_{i=0}^n \ell_i (\mathbf{x})$
 </div>
 <div>
-  <figure>
-    <img src="/gradient_descent_2.png" style="width: 290px !important;">
-  </figure>
+
+#### SGD ($b = 1$)
+* Very noisy gradient
+* $n$ updates per pass
+* Fast per update
+* Very noisy convergence
+
+</div>
+<div>
+
+#### Mini-batch ($b = 32...512$)
+* **Good gradient estimate**
+* **Good GPU utilization**
+* **Fast and stable**
+* **This is what everyone uses!**
+
 </div>
 </div>
 
 ---
 
-# Sample Example
+<style scoped>
+  table {
+    font-size: 16px;
+  }
+</style>
 
-* Two rules to sample example it at time $t$:
-  1. **Random rule**: choose $i_t \in \{1,..., n\}$ uniformly at random
-  1. **Cyclic rule**: choose $i_t = 1, 2, ..., n, 1, 2, ..., n$
-    * Often called **incremental gradient descent**
+# Terminology: Epochs, Iterations, Batches
 
-* **Randomized rule** is more common in practice<br><br>
-$\mathbb{E} \big[ \nabla \ell_{t_i} (\mathbf{x}) \big] = \mathbb{E} \big[ \nabla f(\mathbf{x}) \big]$
-  * An unbiased estimate of the gradient
+#### Important vocabulary:
+
+<v-clicks>
+
+* **Epoch**: one full pass through the entire training dataset
+* **Batch** (mini-batch): a subset of training examples used in one update
+* **Iteration** (step): one gradient update using one batch
+
+</v-clicks>
+
+<v-click>
+
+<br>
+
+#### Example: CIFAR-10 (50,000 training images, batch size = 100)
+
+| | |
+|---|---|
+| Examples per epoch | 50,000 |
+| Batch size | 100 |
+| **Iterations per epoch** | **500** |
+| Training for 100 epochs | 50,000 total iterations |
+
+</v-click>
+
+<v-click>
+
+<br>
+
+> In PyTorch: `DataLoader(dataset, batch_size=100, shuffle=True)` handles batching for you!
+
+</v-click>
 
 ---
 
-# Convergence Rate
+# Batch Size: A Critical Hyperparameter
 
-* Assume $f$ is convex with a diminishing $\eta$, e.g. $\eta = \mathcal{O} (1 / t)$
-$$\mathbb{E} \big[ f(\mathbf{x}_T) \big] - f(\mathbf{x}^\ast) = \mathcal{O} (1 / \sqrt{T})$$
+<br>
 
-* Under the same assumption, for gradient descent
-$$f(\mathbf{x}_T) - f(\mathbf{x}^\ast) = \mathcal{O} (1 / \sqrt{T})$$
+<div class="grid grid-cols-[3fr_3fr] gap-8">
+<div>
 
-* Assume gradient $L$-Lipschitz and fixed $\eta$<br>
-$f(\mathbf{x}_T) - f(\mathbf{x}^\ast) = \mathcal{O} (1 / T)$
-  * Does not improve for stochastic gradient descent
+### Small batch (e.g., 16-64)
+
+<v-clicks>
+
+* **More noise** → acts as regularization!
+* Often **generalizes better**
+* Lower GPU utilization
+* More frequent updates
+
+</v-clicks>
+
+</div>
+<div>
+
+### Large batch (e.g., 512-4096)
+
+<v-clicks>
+
+* **Less noise** → more stable gradients
+* Better **GPU utilization** (parallelism)
+* Can lead to **sharp minima** (worse generalization)
+* Fewer updates per epoch
+
+</v-clicks>
+
+</div>
+</div>
+
+<v-click>
+
+#### Key insights:
+</v-click>
+
+<v-click>
+
+> *"Powers of 2 work well because of GPU memory alignment: **32, 64, 128, 256, 512**. Start with 64 or 128."*<br> — Andrew Ng
+</v-click>
+
+<br>
+<v-click>
+
+> *"SGD noise isn't a bug — it's a **feature**! The noise helps escape sharp minima and find flatter, more generalizable solutions."*<br> — Sebastian Raschka
+</v-click>
 
 ---
 
-# Stochastic Gradient Descent in Practice
+# SGD in Practice: Shuffling Matters
 
-* Does not diminish the learning rate so dramatically
-  * We don’t care about optimizing to high accuracy
+<br>
 
-* Despite converging slower, SGD is way faster on computing the gradient than GD in each iteration
-  * Specially for deep learning with complex models and large-scale datasets
+### Always **shuffle** your data each epoch!
 
----
+<br>
 
-# Mini-batch Stochastic Gradient Descent
+<div class="grid grid-cols-[3fr_3fr] gap-8">
+<div>
 
-### Algorithm:
+#### Without shuffling:
+```python
+# BAD: same order every epoch
+for epoch in range(100):
+    for batch in fixed_batches:
+        train(batch)
+```
 
-* At time $t$, sample a random subset $I_t \subset \{ 1, ..., n \}$ with $\lvert I_t \rvert = b$
-$$\mathbf{x}_t = \mathbf{x}_{t-1} - \frac{\eta_t}{b} \sum_{i \in I_t} \nabla \ell_i (\mathbf{x}_{t-1})$$
+* Model sees same patterns in same order
+* Can lead to **biased gradients**
 
-* Again, it’s an unbiased estimate
-$$\mathbb{E} \bigg[ \frac{1}{b} \sum_{i \in I_t} \nabla \ell_i (\mathbf{x}) \bigg] = \nabla f(\mathbf{x})$$
+</div>
+<div>
 
-* It reduces variance by a factor of $1/b$ compared to SGD
+#### With shuffling:
+```python
+# GOOD: random order each epoch
+for epoch in range(100):
+    shuffle(dataset)
+    for batch in create_batches(dataset):
+        train(batch)
+```
+
+* Each epoch sees data in a new order
+* Better gradient estimates
+
+</div>
+</div>
+
+<v-click>
+
+<br>
+
+> PyTorch `DataLoader` does this automatically with `shuffle=True`
+
+</v-click>
