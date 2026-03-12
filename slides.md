@@ -1,7 +1,7 @@
 ---
 theme: seriph
 addons:
-  - slidev-addon-ultracharger
+  - "@twitwi/slidev-addon-ultracharger"
 addonsConfig:
   ultracharger:
     inlineSvg:
@@ -9,30 +9,21 @@ addonsConfig:
     disable:
       - metaFooter
       - tocFooter
-NObackground: >-
-  https://images.unsplash.com/photo-1511149755252-35875b273fd6?ixlib=rb-4.0.3&dl=leon-contreras-qpdfU6vehgs-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb
-background: /mountain.jpg
+background: /logo/mountain.jpg
 highlighter: shiki
 routerMode: hash
 lineNumbers: false
-info: >
-  ## Slidev ultracharger demo
 
-  A doc / demo presentation for the ultracharger set of
-  [Sli.dev](https://sli.dev) addons.
-
-  It also acts as an experimental area for some features I can imagine.
-
-
-  NB: [Source code
-  available](https://github.com/twitwi/slidev-addon-ultracharger)
 css: unocss
 title: Deep Learning
 subtitle: Optimization Algorithms
-date: 24/02/2025
+date: 13/03/2026
 venue: HSE
 author: Alexey Boldyrev
 ---
+
+<br>
+<br>
 
 # <span style="font-size:28.0pt" v-html="$slidev.configs.title?.replaceAll(' ', '<br/>')"></span>
 # <span style="font-size:32.0pt" v-html="$slidev.configs.subtitle?.replaceAll(' ', '<br/>')"></span>
@@ -40,20 +31,21 @@ author: Alexey Boldyrev
 
 <span style="font-size:18.0pt" v-html="$slidev.configs.date?.replaceAll(' ', '<br/>')"></span>
 
-<div>
-<br>
-<span style="color:#b3b3b3ff; font-size: 11px; float: right;">Image credit: ‘Glacier du Rhone au haut du Valais’<br> by Claude Niquet after Jean Séraphin Désiré Besson<br>
-<a href="https://wellcomecollection.org/works/e3y95vtv">https://wellcomecollection.org/works/e3y95vtv</a>
-</span>
+<div class="abs-tl mx-5 my-10">
+  <img src="/logo/FCS_logo_full_L.svg" class="h-18">
+</div>
+
+<div class="abs-tl mx-5 my-30">
+  <img src="/logo/DSBA_logo.png" class="h-28">
+</div>
+
+<div class="abs-tr mx-5 my-5">
+  <img src="/logo/ICEF_logo.png" class="h-28">
 </div>
 
 <style>
   :deep(footer) { padding-bottom: 3em !important; }
 </style>
-
-<!--
-NB: This demo uses a custom syntax (using preparser extensions), with all the @@@@.
--->
 
 ---
 src: ./slides/0_introduction.md
