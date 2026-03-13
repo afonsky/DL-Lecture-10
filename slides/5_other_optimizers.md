@@ -340,7 +340,165 @@ zoom: 0.95
 </v-click>
 
 ---
-zoom: 0.85
+zoom: 0.95
+---
+
+# AdamW: Fixing Weight Decay in Adam
+
+### The problem with L2 regularization in Adam
+
+<div class="grid grid-cols-[5fr_4fr] gap-8">
+<div>
+
+#### Adam + L2 (the old way):
+Add L2 penalty to the loss:
+$$\mathcal{L}_{\text{reg}} = \mathcal{L} + \frac{\lambda}{2}\|\theta\|^2$$
+
+The gradient becomes $g_t + \lambda\theta_{t-1}$
+
+...but Adam's adaptive scaling **distorts** the regularization!
+* Parameters with large gradients get less decay
+* Parameters with small gradients get more decay
+* This is **not** what we want
+
+</div>
+<div>
+<v-click>
+
+#### AdamW (the fix):
+**Decouple** weight decay from the gradient:
+
+$$\theta_t = \theta_{t-1} - \eta\left(\frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda\theta_{t-1}\right)$$
+</v-click>
+<v-clicks>
+
+* Weight decay is applied **directly** to parameters
+* Not scaled by Adam's adaptive learning rate
+* Proposed by [Loshchilov & Hutter, 2019](https://arxiv.org/abs/1711.05101)
+
+</v-clicks>
+
+</div>
+</div>
+
+<v-click>
+
+> In PyTorch: `torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.01)`
+
+</v-click>
+
+---
+
+# AdamW: Why It Matters in Practice
+
+<br>
+
+<div class="grid grid-cols-[3fr_3fr] gap-8">
+<div>
+
+### Adam + L2 ≠ AdamW
+
+```python
+# These are NOT the same!
+
+# Adam with L2 (wrong way)
+optimizer = Adam(params, lr=1e-3,
+                 weight_decay=0.01)  # ❌
+
+# AdamW (correct way)
+optimizer = AdamW(params, lr=1e-3,
+                  weight_decay=0.01)  # ✓
+```
+
+<v-click>
+
+* Adam's `weight_decay` param actually applies L2 regularization (misleading!)
+* AdamW applies **true** decoupled weight decay
+
+</v-click>
+
+</div>
+<div>
+
+### Where AdamW shines:
+
+<v-clicks>
+
+* **Transformers** — used in BERT, GPT, ViT training
+* **Fine-tuning** pretrained models
+* Any task where **generalization** matters
+* Generally better than Adam whenever you use weight decay
+
+</v-clicks>
+
+<v-click>
+
+<br>
+
+> *"AdamW is the optimizer that should have been Adam from the start."*<br>
+> — paraphrasing Loshchilov & Hutter
+
+</v-click>
+
+</div>
+</div>
+
+---
+zoom: 0.9
+---
+
+# NAdam: Nesterov + Adam
+
+### Idea: replace Adam's momentum with [**Nesterov** momentum](https://en.wikipedia.org/wiki/Yurii_Nesterov) for a better look-ahead
+
+<div class="grid grid-cols-[3fr_3fr] gap-8">
+<div>
+
+#### Standard momentum:
+*"Look where you are, then step in the accumulated direction"*
+
+$$m_t = \beta_1 m_{t-1} + (1-\beta_1) g_t$$
+$$\theta_t = \theta_{t-1} - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}$$
+
+#### Nesterov momentum:
+*"Look ahead first, then compute the gradient"*
+
+$$\theta_t = \theta_{t-1} - \eta \cdot \frac{\beta_1 \hat{m}_t + \frac{(1-\beta_1)g_t}{1-\beta_1^t}}{\sqrt{\hat{v}_t}+\epsilon}$$
+
+</div>
+<div>
+
+### Why Nesterov helps:
+
+<v-clicks>
+
+* Standard momentum: step, **then** correct
+* Nesterov momentum: **peek ahead**, then step
+* Like a skier who looks down the slope before turning
+* Slightly faster convergence in practice
+
+</v-clicks>
+
+<v-click>
+
+### When to use [NAdam](https://openreview.net/pdf/OM0jvwB8jIp57ZJjtNEZ.pdf):
+* When Adam works well but you want a **small extra boost**
+* Particularly useful for **RNNs** and **LSTMs**
+* Same hyperparameters as Adam ($\beta_1 = 0.9$, $\beta_2 = 0.999$)
+
+</v-click>
+
+</div>
+</div>
+
+<v-click>
+
+> In PyTorch: `torch.optim.NAdam(model.parameters(), lr=1e-3)`
+
+</v-click>
+
+---
+zoom: 0.8
 ---
 
 <style scoped>
@@ -351,26 +509,24 @@ zoom: 0.85
 
 # Optimizer Comparison: The Big Picture
 
-<br>
-
-| Feature | SGD | SGD+Momentum | Adagrad | RMSProp | Adam |
-|---------|-----|-------------|---------|---------|------|
-| Per-param LR | No | No | Yes | Yes | Yes |
-| Momentum | No | Yes | No | No | Yes |
-| Bias correction | - | - | - | No | Yes |
-| Memory (extra vars) | 0 | 1x | 1x | 1x | 2x |
-| Typical LR | 0.01 | 0.01 | 0.01 | 0.001 | 0.001 |
-| Best for | Simple, tuned | Vision (SOTA) | Sparse data | General | **Default choice** |
+| Feature | SGD | SGD+Mom. | Adagrad | RMSProp | Adam | AdamW | NAdam |
+|---------|-----|----------|---------|---------|------|-------|-------|
+| Per-param LR | No | No | Yes | Yes | Yes | Yes | Yes |
+| Momentum | No | Yes | No | No | Yes | Yes | Nesterov |
+| Bias correction | - | - | - | No | Yes | Yes | Yes |
+| Weight decay | L2 | L2 | L2 | L2 | L2 (coupled) | **Decoupled** | L2 |
+| Memory (extra) | 0 | 1x | 1x | 1x | 2x | 2x | 2x |
+| Typical LR | 0.01 | 0.01 | 0.01 | 0.001 | 0.001 | 0.001 | 0.001 |
+| Best for | Simple | Vision | Sparse | General | Default | **Transformers** | RNNs |
 
 <v-click>
-
 <br>
 
-### Evolution of optimizers:
+#### Evolution of optimizers:
 ```
-SGD → SGD+Momentum → Adagrad → RMSProp → Adam → AdamW → NAdam
-                                    ↓
-                              (per-param LR idea)
+SGD → SGD+Momentum → Adagrad → RMSProp → Adam → AdamW
+                                    ↓              ↓
+                              (per-param LR)    NAdam (+ Nesterov look-ahead)
 ```
 
 </v-click>
