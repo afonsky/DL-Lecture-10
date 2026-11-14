@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="866.16pt" height="199.482909pt" viewBox="0 0 866.16 199.482909" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 199.482909 
+L 866.16 199.482909 
+L 866.16 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g clip-path="url(#p43c94f5d37)">
+    <image xlink:href="data:image/png;base64,
+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" id="image09c033c53d" transform="scale(1 -1) translate(0 -154.08)" x="5.76" y="-23.082909" width="205.2" height="154.08"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #777777" x="108.465" y="191.080331" transform="rotate(-0 108.465 191.080331)">two dogs on grass</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23395d" x="108.465" y="17.157656" transform="rotate(-0 108.465 17.157656)">Image</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g clip-path="url(#p1b8794d078)">
+    <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAR0AAADWCAYAAADsMla4AAAFWklEQVR4nO3dsXETQRgFYJmhAxqgDSiAyAl1EJET0AEN0IMThoACYKiFIkwAZoQQsk66e/vv7vclDjDjk096evvrbn3z7vOb+x1AyJPWBwDMRegAUUIHiBI6QJTQAaKEDhAldIAooQNEPW19APCYt9++XvX/P7x4udKRbGuWx6npAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKFtb/DbLtgKzPE7q0nSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4hylznTu/bO+yXcpa/pAGGaDsNLNpnHVDqWVjQdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdGMTbb1+7uPhQ6ABRboOgrB7etSt6+L1VvblU0wGiNJ0gWyicR8NZR9XGo+kAUUIHiLK8Wkm1JUG143lMb8fbk2rLLE0HiNJ0aErDydn/XbdsPZoOECV0gCihA0SZ6dCEWU5bLT/R0nSAKKEDRAkdFullzxbqEjpA1PSDZO/al6l2aT390HSAqGmbjoazjiqX1tMPTQeImq7paDjbMefpz+HrIXHuNB0gapqmo+HkaDz9OvY6Wfs8ajpAlNABooQOTXx48dLyqxNr3/oidICooQfJhsdtGSiPZa2P1zUdIOrp82fvWx/Dhl61PgB2u92p59jd7a+vrz85V725NDs0HSBq6JkOdT00m7vbL3993f83ats/T/vn7zGaDhAldICom4/ff9y3PoitqOk1nLN0OlbPnb/+nLPM0nSAKINkNndOYzn2PQ/vmhrPWDQdIMpMh3L+NxdwPvtxaraj6QBRQ890XHA2Fp9wjUHTAaKEDhA19PKKPh0umU4NJQ//zXKrPk0HiJqm6bjQbA6GzfVpOkDUNBcHWvv3b8meLUsknwunHsNIz0kXBwJlDNl0Tr1jaDz926rxtDbSc1HTAcoY6tOrS7ZQ8KkWZGk6QJTQAaKGGiQvWSLN8tHl6EYcKvf8/LNHMlDOEIPktRrO/76n53ceqEbTAaK6neksbR9rr/21nxpGnOk86Ok55s8KA2V1N9Opkv7mPmxt1D2+NR0gSugAUd0sry6pl8kh4zk/q8K+LSPVdPqk6QBR5ZtO9YazRNXjor6RdkPQdICo8k1nCU0C6tN0gKiSt0G0vsVhFr3OB2Y836lzde0Fiba2AMoROkBUqUHy2vviwMyqvkY0HSCqRNPpdaDZu94uOKv6zl3NWr+nrZ4fmg4QVaLpLNmbxrvd+nprPBy31Wtj7eeHpgNElWg6h45doKThQFtrNR5NB4gq2XT2aTg5Zjv96fH1oekAUUIHiCq/vIJZVb105NpluKYDRGk6/NHir1Us+Zkun6j12C/de0fTAaI0Ha5S6Z13ZNV/z0uOT9MBojQdLlJ9+4QRVG83l9J0gCihA0RZXrHI1nu27HaWWqPTdIAooUM5d7dfhh2iInSAMDMdzqJ5sBZNB4jSdBh2CwVq0nSAKE2Hf1Sb32g8Y9F0gCihA0RZXvFHtWXVoerHx3k0HSDq5uP3H/etDwKYh6YDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRAkdIEroAFFCB4gSOkCU0AGihA4QJXSAKKEDRP0ExLpt6F6CXOUAAAAASUVORK5CYII=" id="imagef10a5bd77b" transform="scale(1 -1) translate(0 -154.08)" x="222.48" y="-23.082909" width="205.2" height="154.08"/>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #777777" x="324.875" y="191.080331" transform="rotate(-0 324.875 191.080331)">dog = one class</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23395d" x="324.875" y="17.157656" transform="rotate(-0 324.875 17.157656)">Semantic</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g clip-path="url(#p93a0e6eb39)">
+    <image xlink:href="data:image/png;base64,
+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" id="image9ad64e2552" transform="scale(1 -1) translate(0 -154.08)" x="438.48" y="-23.082909" width="205.2" height="154.08"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #777777" x="541.285" y="191.080331" transform="rotate(-0 541.285 191.080331)">dog #1 ≠ dog #2</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23395d" x="541.285" y="17.157656" transform="rotate(-0 541.285 17.157656)">Instance</text>
+   </g>
+  </g>
+  <g id="axes_4">
+   <g clip-path="url(#pb9e294747d)">
+    <image xlink:href="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAR0AAADWCAYAAADsMla4AAAF9ElEQVR4nO3dMW4bVxQFUCpwnULZQBaQDdgLSCM3AVw7C0il1CmygngDbpJagJvIhRcgwX12YUBFNqAUAQVmQlEzoz933syc00iAKfOLNi7vf/xDnv3y8af7HUDIV3MvANgWoQNECR0gSugAUUIHiBI6QJTQAaKEDhD1Yu4FwFPOr9886+fvLq4arWRaW/k9NR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhDlrS0OXN7ejP7Zdy9fNVzJtLbye1KTpgNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJSrzGG3251fv4ncz93FVeR+KtN0gChNh9VLtZg+Kq1lLpoOECV0gCihA0QJHSBK6ABRQgeIEjpAlNABooQOrMT59ZtFHD4UOkCUyyAoawnP2hXtH7eqF5dqOkCUphN0eXsTu693L1/F7qs1DaeNqo1H0wGihA4QZXvVSHLr1Ee19TzFlmo6h49tha2WpgNEaTrMSsPJqjBc1nSAKKEDRAkdIMpMh1mY5cxrztmOpgNECR0gSugwyOXtzeIOHlKL0AGiNj9I9qw9zuHjtuQr2snTdICozTYdDaed/WOp8dCHpgNEba7paDjT0XiWp3tIM3FYUNMBojbTdDScHI1nuY5dntK6/Wg6QJTQAaKEDrO4u7gq8X69PK31xxULHSBq1YNkw+N5GSivS6shs6YDRL349ptf517DhL6fewHsdruT/8fe/vvl7z/+iqyFtsbkh6YDRK16pkNd+2bz9dvv/vP18M+or/vv2IemA0QJHSDK9oqo7tbpWD3ff2+btRxDtlmaDhCl6TC5Po3l2G00nnXSdIAoTYdyunMBjWc5+sx2NB0gatVN58PrTw/f//CnSyLSfr/7rfdtfzz/+eH7D7tPR29z7NlT+1keTQeIEjpA1Kq3V8xj7LZqr7sVPtwmd3W3XLZb9Wk6QNRmms7+2dJAeTpDGs5UDJvr03SAqLP3n7/cz72IqRy2mu5cQONpZ0zDOTbLecqp2c5zpdrQqUNza2pkDgcCZayy6ZxqMRpPG2PnN2MazjFTtp65aDoAE1jVq1d9WsupMyBazzRatRvWQdMBooQOELWqQfKQ7dGpQaRt1uOee4lDawbKtXiPZKCcVQySWzWcx26j+dRrOCyXpgNELbrptG44Q352K+2nwkWcW7PEj1j2scJAWYtrOlUaxlbmPt35zKnmY5bT3ho/CUPTAaKEDhC1mO3VmO1L8uBYn/tKbsGmOvy430IdbrNsqxhC0wGiyjed6g1niKrrGkO7yVrTQFnTAaLKN50h1tQkYK00HSCq7FtbpC5x2LIlH2jc2r/5HJ9WMeY+vbUFUI7QAaJKDZKH1v2tVWwYYsiV30maDhBVoukseaC5ZPumuJTHX7Ptp1XDmepAoqYDRJVoOkPemc+zXXtLazwcN9UMp3Xj0XSAqBJN55jus6+GA/Nq1Xg0HSCqbNPZ03ByzHaWp+pZnFM0HSBK6ABR5bdXsGWPDW3n3FY990p0TQeI0nR4MMenVQy5z8PbbvUFhmqD4zEvo2s6QJSmw7NttXUkVWs4XUPWp+kAUZoOo7RqNw4knla94Yyh6QBRQgeIsr1ikKmGxod/r63Wumk6QJTQoZwPrz95GX7FhA4QZaZDL5oHrWg6QJSmw8lXi+ZsOA4OrpOmA0RpOvxPtfmNxrMumg4QJXSAKNsrHlTbVnVVXx/9aDpA1Nn7z1/u514EsB2aDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhAldIAooQNECR0gSugAUUIHiBI6QJTQAaKEDhD1D9B7eqLsJtmYAAAAAElFTkSuQmCC" id="imagebdac11d8c9" transform="scale(1 -1) translate(0 -154.08)" x="655.2" y="-23.082909" width="205.2" height="154.08"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #777777" x="757.695" y="191.080331" transform="rotate(-0 757.695 191.080331)">things + stuff, every pixel</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #23395d" x="757.695" y="17.157656" transform="rotate(-0 757.695 17.157656)">Panoptic</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p43c94f5d37">
+   <rect x="5.76" y="23.157656" width="205.41" height="154.0575"/>
+  </clipPath>
+  <clipPath id="p1b8794d078">
+   <rect x="222.17" y="23.157656" width="205.41" height="154.0575"/>
+  </clipPath>
+  <clipPath id="p93a0e6eb39">
+   <rect x="438.58" y="23.157656" width="205.41" height="154.0575"/>
+  </clipPath>
+  <clipPath id="pb9e294747d">
+   <rect x="654.99" y="23.157656" width="205.41" height="154.0575"/>
+  </clipPath>
+ </defs>
+</svg>
